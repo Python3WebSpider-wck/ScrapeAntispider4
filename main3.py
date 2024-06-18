@@ -5,6 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 import re
 import requests
+
+
 url = 'https://antispider4.scrape.center/css/app.654ba59e.css'
 
 
@@ -32,6 +34,7 @@ WebDriverWait(browser, 10) \
 html = browser.page_source
 doc = pq(html)
 items = doc('.item')
+
 for item in items.items():
     name = item('.name').text()
     categories = [o.text() for o in item('.categories button').items()]
